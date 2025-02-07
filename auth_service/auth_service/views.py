@@ -38,6 +38,22 @@ def register(request):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
+def validate_token(request):
+    token = request.data['token']
+    try:
+        token = Token.objects.get(key=token)
+        user = token.user
+
+        return Response({
+            'id': user.id,
+            'username': user.username,
+            'email': user.email,
+            'is_staff': user.is_staff,
+        }, status=status.HTTP_200_OK)
+    except Token.DoesNotExist:
+        return Response({'error': 'Token inválido'}, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['POST'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
 def profile(request):
