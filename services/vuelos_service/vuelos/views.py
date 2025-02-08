@@ -25,3 +25,8 @@ class CrearVuelo(generics.CreateAPIView):
     queryset = Vuelo.objects.all()
     serializer_class = VueloSerializer
     permission_classes = [permissions.IsAdminUser]
+
+class ObtenerVuelo(generics.RetrieveAPIView):
+    queryset = Vuelo.objects.all()
+    serializer_class = VueloSerializer
+    permission_classes = [permissions.IsAuthenticated]
