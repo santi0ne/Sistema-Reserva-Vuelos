@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'reservas_db',
         'USER': 'root',
         'PASSWORD': '0208',
-        'HOST': 'localhost',  #cambiar por nombre de contenedor
+        'HOST': 'localhost',  
         'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"

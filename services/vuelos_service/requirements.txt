@@ -1,6 +1,0 @@
-django
-djangorestframework
-djangorestframework-authtoken
-requests
-mysqlclient
-gunicorn
